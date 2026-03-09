@@ -31,8 +31,8 @@ function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/portfolio/kitchen-modern.jpg"
-          alt="Modern kitchen design by Lisa Wilson"
+          src="/portfolio/kitchen-waterfront-view.jpg"
+          alt="Waterfront kitchen design by Lisa Wilson"
           fill
           className="object-cover scale-105"
           priority
@@ -119,27 +119,6 @@ function About() {
 }
 
 function Portfolio() {
-  const projects = [
-    {
-      src: "/portfolio/kitchen-coastal.jpeg",
-      alt: "Coastal white kitchen with shiplap island and marble countertops",
-      title: "Coastal Retreat",
-      description: "White shaker cabinetry with shiplap island and granite countertops",
-    },
-    {
-      src: "/portfolio/kitchen-modern.jpg",
-      alt: "Modern kitchen with black and white cabinetry and gold hardware",
-      title: "Modern Contrast",
-      description: "Two-tone Woodharbor cabinetry with brushed gold accents",
-    },
-    {
-      src: "/portfolio/kitchen-elegant.jpg",
-      alt: "Elegant white kitchen with long peninsula and pendant lights",
-      title: "Classic Elegance",
-      description: "Floor-to-ceiling cabinetry with quartz countertops and brass fixtures",
-    },
-  ];
-
   return (
     <section id="portfolio" className="py-28 md:py-40 bg-[#1a1a1a]">
       <div className="max-w-7xl mx-auto px-8">
@@ -152,39 +131,112 @@ function Portfolio() {
           </h2>
           <div className="w-16 h-px bg-[#b8976a] mx-auto" />
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className={`group relative image-zoom ${index === 1 ? 'md:-mt-8' : ''}`}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden">
+
+        {/* Project 1: Waterfront Residence */}
+        <div className="mb-20">
+          <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-2">
+            01
+          </p>
+          <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
+            Waterfront Residence
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
                 <Image
-                  src={project.src}
-                  alt={project.alt}
+                  src="/portfolio/kitchen-waterfront-view.jpg"
+                  alt="Waterfront kitchen with ocean views, blue island, and marble countertops"
                   fill
-                  className="object-cover transition-transform duration-700"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-500" />
-                <div className="absolute inset-0 flex flex-col justify-end p-8 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
-                  <h3 className="font-serif text-2xl text-white mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-[11px] tracking-wider text-white/70">
-                    {project.description}
-                  </p>
-                </div>
-              </div>
-              <div className="mt-6 md:hidden">
-                <h3 className="font-serif text-xl text-white mb-1">
-                  {project.title}
-                </h3>
-                <p className="text-xs text-gray-400 tracking-wide">
-                  {project.description}
-                </p>
               </div>
             </div>
-          ))}
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-waterfront-island.jpg"
+                  alt="Waterfront kitchen island with beadboard detail and marble top"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-waterfront-galley.jpg"
+                  alt="Waterfront kitchen galley view with white and grey cabinetry"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/bathroom-white.jpg"
+                  alt="White beadboard bathroom vanity with marble countertop"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/bathroom-slate.jpg"
+                  alt="Slate grey bathroom vanity with granite countertop"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 tracking-wide mt-4">
+            Woodharbor beadboard cabinetry &middot; Marble countertops &middot; Custom blue island &middot; Ocean views
+          </p>
+        </div>
+
+        {/* Project 2: Original kitchens */}
+        <div>
+          <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-2">
+            02
+          </p>
+          <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
+            Recent Projects
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              {
+                src: "/portfolio/kitchen-modern.jpg",
+                alt: "Modern kitchen with black and white cabinetry and gold hardware",
+              },
+              {
+                src: "/portfolio/kitchen-elegant.jpg",
+                alt: "Elegant white kitchen with long peninsula and pendant lights",
+              },
+              {
+                src: "/portfolio/kitchen-coastal.jpeg",
+                alt: "Coastal white kitchen with shiplap island",
+              },
+            ].map((img) => (
+              <div key={img.src} className="group relative overflow-hidden">
+                <div className="relative aspect-[3/4]">
+                  <Image
+                    src={img.src}
+                    alt={img.alt}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+          <p className="text-xs text-gray-500 tracking-wide mt-4">
+            Two-tone cabinetry &middot; Gold hardware &middot; Quartz countertops &middot; Custom islands
+          </p>
         </div>
       </div>
     </section>
@@ -196,7 +248,7 @@ function FeatureBanner() {
     <section className="relative py-32 md:py-44 overflow-hidden">
       <div className="absolute inset-0">
         <Image
-          src="/portfolio/kitchen-coastal.jpeg"
+          src="/portfolio/kitchen-waterfront-galley.jpg"
           alt="Kitchen design detail"
           fill
           className="object-cover"
