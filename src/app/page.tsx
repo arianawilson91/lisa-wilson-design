@@ -478,31 +478,26 @@ function Services() {
 }
 
 function Contact() {
-  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  const [formStatus, setFormStatus] = useState<"idle" | "sent">("idle");
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setFormStatus("sending");
 
     const form = e.currentTarget;
     const data = new FormData(form);
+    const name = data.get("name") as string;
+    const phone = data.get("phone") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
 
-    try {
-      const res = await fetch("https://formspree.io/f/xyzybdkl", {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
+    const subject = encodeURIComponent(`New Project Inquiry from ${name}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\n\nProject Details:\n${message}`
+    );
 
-      if (res.ok) {
-        setFormStatus("sent");
-        form.reset();
-      } else {
-        setFormStatus("error");
-      }
-    } catch {
-      setFormStatus("error");
-    }
+    window.open(`mailto:lisawilsondesign@gmail.com?subject=${subject}&body=${body}`, "_self");
+    setFormStatus("sent");
+    form.reset();
   };
 
   return (
@@ -592,26 +587,13 @@ function Contact() {
           <div className="text-center">
             <button
               type="submit"
-              disabled={formStatus === "sending"}
-              className="inline-block bg-[#b8976a] text-white px-12 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#96784f] transition-all duration-500 disabled:opacity-50"
+              className="inline-block bg-[#b8976a] text-white px-12 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#96784f] transition-all duration-500"
             >
-              {formStatus === "sending" ? "Sending..." : "Send Message"}
+              Send Message
             </button>
             {formStatus === "sent" && (
               <p className="text-[#b8976a] text-sm mt-4 tracking-wide">
-                Thank you! Lisa will be in touch soon.
-              </p>
-            )}
-            {formStatus === "error" && (
-              <p className="text-red-400 text-sm mt-4 tracking-wide">
-                Something went wrong. Please email{" "}
-                <a
-                  href="mailto:lisawilsondesign@gmail.com"
-                  className="underline"
-                >
-                  lisawilsondesign@gmail.com
-                </a>{" "}
-                directly.
+                Thank you! Your email client should open with your message.
               </p>
             )}
           </div>
