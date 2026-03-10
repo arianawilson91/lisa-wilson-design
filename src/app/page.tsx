@@ -667,14 +667,6 @@ function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-8">
             <a
-              href="https://www.instagram.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.25em] uppercase text-white/40 hover:text-[#b8976a] transition-colors"
-            >
-              Instagram
-            </a>
-            <a
               href="https://www.houzz.com/"
               target="_blank"
               rel="noopener noreferrer"
