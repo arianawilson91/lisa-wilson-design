@@ -664,27 +664,7 @@ function Footer() {
             Lisa Wilson <span className="italic">Design</span>
           </p>
 
-          {/* Social links */}
-          <div className="flex items-center gap-8">
-            <a
-              href="https://www.houzz.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.25em] uppercase text-white/40 hover:text-[#b8976a] transition-colors"
-            >
-              Houzz
-            </a>
-            <a
-              href="https://www.pinterest.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[10px] tracking-[0.25em] uppercase text-white/40 hover:text-[#b8976a] transition-colors"
-            >
-              Pinterest
-            </a>
-          </div>
-
-          <p className="text-[10px] text-white/50 tracking-[0.2em] uppercase">
+<p className="text-[10px] text-white/50 tracking-[0.2em] uppercase">
             &copy; 2026 All rights reserved
           </p>
         </div>
