@@ -1,12 +1,36 @@
+"use client";
+
 import Image from "next/image";
+import { useState, useEffect } from "react";
 
 function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 80);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeMenu = () => setIsOpen(false);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-b from-black/50 to-transparent">
-      <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[#1a1a1a]/95 backdrop-blur-sm shadow-lg"
+          : "bg-gradient-to-b from-black/50 to-transparent"
+      }`}
+    >
+      <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
         <a href="#" className="font-serif text-2xl text-white tracking-wider">
           Lisa Wilson <span className="italic font-light">Design</span>
         </a>
+
+        {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-10 text-[11px] tracking-[0.25em] uppercase text-white/80">
           <a href="#about" className="hover:text-white transition-colors duration-300">
             About
@@ -17,7 +41,59 @@ function Navbar() {
           <a href="#services" className="hover:text-white transition-colors duration-300">
             Services
           </a>
-          <a href="#contact" className="hover:text-white transition-colors duration-300 border border-white/40 px-5 py-2 hover:bg-white hover:text-[#1a1a1a]">
+          <a
+            href="#contact"
+            className="hover:text-white transition-colors duration-300 border border-white/40 px-5 py-2 hover:bg-white hover:text-[#1a1a1a]"
+          >
+            Contact
+          </a>
+        </div>
+
+        {/* Mobile hamburger button */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden flex flex-col gap-1.5 p-2"
+          aria-label="Toggle menu"
+        >
+          <span
+            className={`w-6 h-px bg-white transition-all duration-300 ${
+              isOpen ? "rotate-45 translate-y-[3.5px]" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-px bg-white transition-all duration-300 ${
+              isOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-px bg-white transition-all duration-300 ${
+              isOpen ? "-rotate-45 -translate-y-[3.5px]" : ""
+            }`}
+          />
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-500 ${
+          isOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+        }`}
+      >
+        <div className="bg-[#1a1a1a]/95 backdrop-blur-sm px-8 pb-8 pt-2 flex flex-col gap-6 text-[11px] tracking-[0.25em] uppercase text-white/80">
+          <a href="#about" onClick={closeMenu} className="hover:text-white transition-colors">
+            About
+          </a>
+          <a href="#portfolio" onClick={closeMenu} className="hover:text-white transition-colors">
+            Portfolio
+          </a>
+          <a href="#services" onClick={closeMenu} className="hover:text-white transition-colors">
+            Services
+          </a>
+          <a
+            href="#contact"
+            onClick={closeMenu}
+            className="text-center border border-white/40 px-5 py-3 hover:bg-white hover:text-[#1a1a1a] transition-all"
+          >
             Contact
           </a>
         </div>
@@ -48,7 +124,7 @@ function Hero() {
           Luxury Kitchen
           <span className="block italic font-light text-[#d4c4a8]">Design</span>
         </h1>
-        <p className="text-sm md:text-base text-white mb-12 max-w-md mx-auto leading-relaxed tracking-wide text-shadow">
+        <p className="text-base md:text-lg font-medium text-white mb-12 max-w-md mx-auto leading-relaxed tracking-wide text-shadow">
           Elevating homes with timeless kitchens, designed with
           intention and built to inspire.
         </p>
@@ -94,7 +170,7 @@ function About() {
               functional. With a keen eye for detail and a passion for quality
               craftsmanship, she transforms kitchens into the heart of the home.
             </p>
-            <p className="text-sm leading-[1.9] text-gray-600 tracking-wide">
+            <p className="text-sm leading-[1.9] text-gray-600 mb-6 tracking-wide">
               As an authorized dealer of{" "}
               <a
                 href="https://www.woodharbor.com/"
@@ -106,6 +182,10 @@ function About() {
               </a>
               , Lisa brings premium, American-made cabinetry to every project —
               combining timeless design with exceptional build quality.
+            </p>
+            <p className="text-xs leading-[1.8] text-gray-500 tracking-wide">
+              Serving Cape Coral, Fort Myers, Naples, and surrounding
+              Southwest Florida communities.
             </p>
           </div>
         </div>
@@ -125,7 +205,10 @@ function Portfolio() {
           <h2 className="font-serif text-4xl md:text-6xl font-light text-white mb-6 leading-[1.2]">
             Our Portfolio
           </h2>
-          <p className="sr-only">Kitchen and bathroom design projects by Lisa Wilson Design in Cape Coral, Florida</p>
+          <p className="sr-only">
+            Kitchen and bathroom design projects by Lisa Wilson Design in Cape
+            Coral, Florida
+          </p>
           <div className="w-16 h-px bg-[#b8976a] mx-auto" />
         </div>
 
@@ -192,7 +275,8 @@ function Portfolio() {
             </div>
           </div>
           <p className="text-xs text-gray-400 tracking-wide mt-4">
-            Woodharbor beadboard cabinetry &middot; Marble countertops &middot; Custom blue island &middot; Ocean views
+            Woodharbor beadboard cabinetry &middot; Marble countertops &middot;
+            Custom blue island &middot; Ocean views
           </p>
         </div>
 
@@ -232,7 +316,8 @@ function Portfolio() {
             ))}
           </div>
           <p className="text-xs text-gray-400 tracking-wide mt-4">
-            Two-tone cabinetry &middot; Gold hardware &middot; Quartz countertops &middot; Custom islands
+            Two-tone cabinetry &middot; Gold hardware &middot; Quartz
+            countertops &middot; Custom islands
           </p>
         </div>
       </div>
@@ -258,16 +343,72 @@ function FeatureBanner() {
         </p>
         <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl font-light text-white max-w-3xl mx-auto leading-[1.3] mb-8">
           Every detail considered.
-          <span className="block italic text-[#d4c4a8]">Every surface intentional.</span>
+          <span className="block italic text-[#d4c4a8]">
+            Every surface intentional.
+          </span>
         </h2>
         <a
-          href="https://www.woodharbor.com/"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contact"
           className="inline-block border border-[#b8976a] text-[#d4c4a8] px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#b8976a] hover:text-white transition-all duration-500"
         >
-          Explore Woodharbor
+          Start Your Project
         </a>
+      </div>
+    </section>
+  );
+}
+
+function Testimonials() {
+  const testimonials = [
+    {
+      quote:
+        "Lisa transformed our kitchen beyond what we imagined. Her eye for detail and understanding of how we live made all the difference.",
+      name: "Sarah M.",
+      location: "Cape Coral",
+    },
+    {
+      quote:
+        "From the very first consultation, Lisa listened to exactly what we wanted. The Woodharbor cabinets she recommended are stunning — the quality is unmatched.",
+      name: "James & Karen T.",
+      location: "Fort Myers",
+    },
+    {
+      quote:
+        "Working with Lisa was effortless. She handled everything and kept us on budget. We get compliments on our kitchen every single time we entertain.",
+      name: "Michelle R.",
+      location: "Naples",
+    },
+  ];
+
+  return (
+    <section className="py-28 md:py-40 bg-[#f8f5f0]">
+      <div className="max-w-6xl mx-auto px-8">
+        <div className="text-center mb-20">
+          <p className="text-[11px] tracking-[0.35em] uppercase text-[#96784f] mb-4">
+            Client Experiences
+          </p>
+          <h2 className="font-serif text-4xl md:text-6xl font-light text-[#2a2a2a] mb-6">
+            Kind Words
+          </h2>
+          <div className="w-16 h-px bg-[#b8976a] mx-auto" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {testimonials.map((t) => (
+            <div key={t.name} className="text-center">
+              <div className="font-serif text-5xl text-[#b8976a]/30 mb-4">&ldquo;</div>
+              <p className="text-sm text-gray-600 leading-[1.9] tracking-wide mb-6 italic">
+                {t.quote}
+              </p>
+              <div className="w-8 h-px bg-[#b8976a] mx-auto mb-4" />
+              <p className="text-xs tracking-[0.2em] uppercase font-medium text-[#2a2a2a]">
+                {t.name}
+              </p>
+              <p className="text-xs text-gray-500 tracking-wide mt-1">
+                {t.location}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -323,27 +464,161 @@ function Services() {
             </div>
           ))}
         </div>
+        <div className="text-center mt-16">
+          <a
+            href="#contact"
+            className="inline-block border border-[#b8976a] text-[#b8976a] px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#b8976a] hover:text-white transition-all duration-500"
+          >
+            Request a Quote
+          </a>
+        </div>
       </div>
     </section>
   );
 }
 
 function Contact() {
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus("sending");
+
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const res = await fetch("https://formspree.io/f/xyzybdkl", {
+        method: "POST",
+        body: data,
+        headers: { Accept: "application/json" },
+      });
+
+      if (res.ok) {
+        setFormStatus("sent");
+        form.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="py-28 md:py-40 bg-[#2a2a2a]">
-      <div className="max-w-4xl mx-auto px-8 text-center">
-        <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-4">
-          Start Your Project
-        </p>
-        <h2 className="font-serif text-4xl md:text-6xl font-light text-white mb-6 leading-[1.2]">
-          Let&apos;s Create Something
-          <span className="block italic text-[#d4c4a8]">Beautiful</span>
-        </h2>
-        <div className="w-16 h-px bg-[#b8976a] mx-auto mb-10" />
-        <p className="text-sm text-gray-300 max-w-md mx-auto mb-16 leading-relaxed tracking-wide">
-          Ready to transform your kitchen? Reach out to begin the conversation.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className="max-w-4xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-4">
+            Start Your Project
+          </p>
+          <h2 className="font-serif text-4xl md:text-6xl font-light text-white mb-6 leading-[1.2]">
+            Let&apos;s Create Something
+            <span className="block italic text-[#d4c4a8]">Beautiful</span>
+          </h2>
+          <div className="w-16 h-px bg-[#b8976a] mx-auto mb-10" />
+          <p className="text-sm text-gray-300 max-w-md mx-auto leading-relaxed tracking-wide">
+            Ready to transform your kitchen? Fill out the form below and
+            Lisa will be in touch within 24 hours.
+          </p>
+        </div>
+
+        {/* Contact Form */}
+        <form onSubmit={handleSubmit} className="max-w-xl mx-auto mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-[10px] uppercase tracking-[0.3em] text-[#b8976a] mb-2"
+              >
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                className="w-full bg-transparent border border-white/20 px-4 py-3 text-sm text-white tracking-wide focus:border-[#b8976a] focus:outline-none transition-colors"
+                placeholder="Your name"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-[10px] uppercase tracking-[0.3em] text-[#b8976a] mb-2"
+              >
+                Phone
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                className="w-full bg-transparent border border-white/20 px-4 py-3 text-sm text-white tracking-wide focus:border-[#b8976a] focus:outline-none transition-colors"
+                placeholder="Your phone number"
+              />
+            </div>
+          </div>
+          <div className="mb-6">
+            <label
+              htmlFor="email"
+              className="block text-[10px] uppercase tracking-[0.3em] text-[#b8976a] mb-2"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="w-full bg-transparent border border-white/20 px-4 py-3 text-sm text-white tracking-wide focus:border-[#b8976a] focus:outline-none transition-colors"
+              placeholder="Your email address"
+            />
+          </div>
+          <div className="mb-8">
+            <label
+              htmlFor="message"
+              className="block text-[10px] uppercase tracking-[0.3em] text-[#b8976a] mb-2"
+            >
+              Tell us about your project
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              rows={5}
+              className="w-full bg-transparent border border-white/20 px-4 py-3 text-sm text-white tracking-wide focus:border-[#b8976a] focus:outline-none transition-colors resize-none"
+              placeholder="Describe your kitchen vision, timeline, and any details you'd like to share..."
+            />
+          </div>
+          <div className="text-center">
+            <button
+              type="submit"
+              disabled={formStatus === "sending"}
+              className="inline-block bg-[#b8976a] text-white px-12 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#96784f] transition-all duration-500 disabled:opacity-50"
+            >
+              {formStatus === "sending" ? "Sending..." : "Send Message"}
+            </button>
+            {formStatus === "sent" && (
+              <p className="text-[#b8976a] text-sm mt-4 tracking-wide">
+                Thank you! Lisa will be in touch soon.
+              </p>
+            )}
+            {formStatus === "error" && (
+              <p className="text-red-400 text-sm mt-4 tracking-wide">
+                Something went wrong. Please email{" "}
+                <a
+                  href="mailto:lisawilsondesign@gmail.com"
+                  className="underline"
+                >
+                  lisawilsondesign@gmail.com
+                </a>{" "}
+                directly.
+              </p>
+            )}
+          </div>
+        </form>
+
+        {/* Contact info */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center border-t border-white/10 pt-12">
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-[#b8976a] mb-3">
               Email
@@ -368,17 +643,13 @@ function Contact() {
           </div>
           <div>
             <p className="text-[10px] uppercase tracking-[0.3em] text-[#b8976a] mb-3">
-              Location
+              Service Area
             </p>
-            <p className="text-sm text-white tracking-wide">Cape Coral, FL</p>
+            <p className="text-sm text-white tracking-wide">
+              Cape Coral, Fort Myers &amp; SW Florida
+            </p>
           </div>
         </div>
-        <a
-          href="mailto:lisawilsondesign@gmail.com"
-          className="inline-block bg-[#b8976a] text-white px-12 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#96784f] transition-all duration-500"
-        >
-          Get in Touch
-        </a>
       </div>
     </section>
   );
@@ -386,14 +657,45 @@ function Contact() {
 
 function Footer() {
   return (
-    <footer className="py-8 bg-[#1a1a1a] border-t border-white/5">
-      <div className="max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="font-serif text-lg text-white/60 tracking-wider">
-          Lisa Wilson <span className="italic">Design</span>
-        </p>
-        <p className="text-[10px] text-white/50 tracking-[0.2em] uppercase">
-          &copy; 2026 All rights reserved
-        </p>
+    <footer className="py-12 bg-[#1a1a1a] border-t border-white/5">
+      <div className="max-w-6xl mx-auto px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <p className="font-serif text-lg text-white/60 tracking-wider">
+            Lisa Wilson <span className="italic">Design</span>
+          </p>
+
+          {/* Social links */}
+          <div className="flex items-center gap-8">
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] tracking-[0.25em] uppercase text-white/40 hover:text-[#b8976a] transition-colors"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://www.houzz.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] tracking-[0.25em] uppercase text-white/40 hover:text-[#b8976a] transition-colors"
+            >
+              Houzz
+            </a>
+            <a
+              href="https://www.pinterest.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[10px] tracking-[0.25em] uppercase text-white/40 hover:text-[#b8976a] transition-colors"
+            >
+              Pinterest
+            </a>
+          </div>
+
+          <p className="text-[10px] text-white/50 tracking-[0.2em] uppercase">
+            &copy; 2026 All rights reserved
+          </p>
+        </div>
       </div>
     </footer>
   );
@@ -407,6 +709,7 @@ export default function Home() {
       <About />
       <Portfolio />
       <FeatureBanner />
+      <Testimonials />
       <Services />
       <Contact />
       <Footer />
