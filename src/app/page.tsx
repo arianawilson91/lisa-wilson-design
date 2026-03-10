@@ -49,8 +49,8 @@ function Hero() {
           <span className="block italic font-light text-[#d4c4a8]">Design</span>
         </h1>
         <p className="text-sm md:text-base font-light text-white/70 mb-12 max-w-md mx-auto leading-relaxed tracking-wide">
-          Bespoke kitchen spaces crafted with Woodharbor cabinetry
-          and an unwavering eye for detail.
+          Elevating homes with timeless kitchens, designed with
+          intention and built to inspire.
         </p>
         <a
           href="#portfolio"
@@ -58,10 +58,6 @@ function Hero() {
         >
           View Portfolio
         </a>
-      </div>
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-        <div className="w-px h-16 bg-gradient-to-b from-transparent to-white/40 mx-auto mb-2" />
-        <p className="text-[10px] tracking-[0.3em] uppercase text-white/40">Scroll</p>
       </div>
     </section>
   );
