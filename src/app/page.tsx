@@ -48,7 +48,7 @@ function Hero() {
           Luxury Kitchen
           <span className="block italic font-light text-[#d4c4a8]">Design</span>
         </h1>
-        <p className="text-sm md:text-base font-light text-white/90 mb-12 max-w-md mx-auto leading-relaxed tracking-wide">
+        <p className="text-sm md:text-base text-white mb-12 max-w-md mx-auto leading-relaxed tracking-wide text-shadow">
           Elevating homes with timeless kitchens, designed with
           intention and built to inspire.
         </p>
