@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/portfolio/kitchen-waterfront-view.jpg",
+        url: "https://lisawilsondesign.com/portfolio/kitchen-waterfront-view.jpg",
         width: 1200,
         height: 630,
         alt: "Lisa Wilson Design - Luxury Kitchen Design in Cape Coral, FL",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     title: "Lisa Wilson Design | Kitchen Designer in Cape Coral, FL",
     description:
       "Custom kitchen design in Cape Coral, Florida. Specializing in Woodharbor cabinetry.",
-    images: ["/portfolio/kitchen-waterfront-view.jpg"],
+    images: ["https://lisawilsondesign.com/portfolio/kitchen-waterfront-view.jpg"],
   },
   robots: {
     index: true,
@@ -96,7 +96,7 @@ export default function RootLayout({
                 name: "Cape Coral, FL",
               },
               priceRange: "$$",
-              image: "/portfolio/kitchen-waterfront-view.jpg",
+              image: "https://lisawilsondesign.com/portfolio/kitchen-waterfront-view.jpg",
               sameAs: [],
             }),
           }}
