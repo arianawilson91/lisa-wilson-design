@@ -147,10 +147,10 @@ function About() {
           <div className="relative">
             <div className="relative aspect-[3/4] overflow-hidden">
               <Image
-                src="/portfolio/kitchen-elegant.jpg"
-                alt="Elegant kitchen design"
+                src="/lisa-wilson-headshot.jpg"
+                alt="Lisa Wilson, kitchen designer in Cape Coral, Florida"
                 fill
-                className="object-cover"
+                className="object-cover object-top"
               />
             </div>
             <div className="absolute -bottom-6 -right-6 w-32 h-32 border border-[#b8976a]/30 hidden md:block" />
@@ -160,8 +160,8 @@ function About() {
               About the Designer
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-light text-[#2a2a2a] mb-8 leading-[1.2]">
-              Where Vision
-              <span className="block italic">Meets Craft</span>
+              Meet Lisa
+              <span className="block italic">Wilson</span>
             </h2>
             <div className="w-12 h-px bg-[#b8976a] mb-8" />
             <p className="text-sm leading-[1.9] text-gray-600 mb-6 tracking-wide">
