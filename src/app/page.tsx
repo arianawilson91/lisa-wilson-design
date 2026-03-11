@@ -26,7 +26,7 @@ function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
-        <a href="#" className="font-serif text-2xl text-white tracking-wider">
+        <a href="/" className="font-serif text-2xl text-white tracking-wider">
           Lisa Wilson <span className="italic font-light">Design</span>
         </a>
 
@@ -121,8 +121,8 @@ function Hero() {
           Cape Coral, Florida
         </p>
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light tracking-wide mb-8 leading-[1.1]">
-          Luxury Kitchen
-          <span className="block italic font-light text-[#d4c4a8]">Design</span>
+          Luxury Kitchen{" "}
+          <span className="block italic font-light text-[#d4c4a8]">Design in Cape Coral</span>
         </h1>
         <p className="text-base md:text-lg font-medium text-white mb-12 max-w-md mx-auto leading-relaxed tracking-wide text-shadow">
           Elevating homes with timeless kitchens, designed with
@@ -160,7 +160,7 @@ function About() {
               About the Designer
             </p>
             <h2 className="font-serif text-4xl md:text-5xl font-light text-[#2a2a2a] mb-8 leading-[1.2]">
-              Meet Lisa
+              Meet Lisa{" "}
               <span className="block italic">Wilson</span>
             </h2>
             <div className="w-12 h-px bg-[#b8976a] mb-8" />
@@ -169,6 +169,12 @@ function About() {
               dedicated to creating spaces that are as beautiful as they are
               functional. With a keen eye for detail and a passion for quality
               craftsmanship, she transforms kitchens into the heart of the home.
+            </p>
+            <p className="text-sm leading-[1.9] text-gray-600 mb-6 tracking-wide">
+              Whether you&apos;re planning a complete kitchen remodel, updating
+              your custom cabinets, or starting a kitchen renovation from
+              scratch, Lisa guides you through every step — from initial
+              layout and countertop selection to final installation.
             </p>
             <p className="text-sm leading-[1.9] text-gray-600 mb-6 tracking-wide">
               As an authorized dealer of{" "}
@@ -181,11 +187,13 @@ function About() {
                 Woodharbor Cabinetry
               </a>
               , Lisa brings premium, American-made cabinetry to every project —
-              combining timeless design with exceptional build quality.
+              combining timeless design with exceptional build quality. From
+              semi-custom cabinets to fully custom kitchen cabinetry, every piece
+              is built to last.
             </p>
             <p className="text-xs leading-[1.8] text-gray-500 tracking-wide">
-              Serving Cape Coral, Fort Myers, Naples, and surrounding
-              Southwest Florida communities.
+              Serving Cape Coral, Fort Myers, Naples, Bonita Springs, Estero,
+              and surrounding Southwest Florida communities.
             </p>
           </div>
         </div>
@@ -418,21 +426,21 @@ function Services() {
   const services = [
     {
       number: "01",
-      title: "Kitchen Design",
+      title: "Kitchen Design & Remodeling",
       description:
-        "Full-service kitchen design from concept to completion. Space planning, material selection, and meticulous project coordination.",
+        "Full-service kitchen design and kitchen renovation from concept to completion. We handle space planning, kitchen layout optimization, countertop selection, material sourcing, and meticulous project coordination for homes throughout Southwest Florida.",
     },
     {
       number: "02",
-      title: "Woodharbor Cabinetry",
+      title: "Custom Cabinetry",
       description:
-        "Authorized dealer of Woodharbor custom and semi-custom cabinetry. Premium American-made cabinets with endless style possibilities.",
+        "Authorized dealer of Woodharbor custom and semi-custom cabinetry. Premium American-made custom cabinets built to your exact specifications — from shaker-style to contemporary designs with endless finish, wood, and hardware possibilities.",
     },
     {
       number: "03",
       title: "Design Consultation",
       description:
-        "Expert guidance for your kitchen remodel. Budget planning, layout optimization, and personalized design direction.",
+        "Expert guidance for your kitchen remodel or renovation project. Includes budget planning, layout optimization, material comparisons such as quartz vs. granite countertops, and personalized design direction tailored to your home and lifestyle.",
     },
   ];
 
@@ -513,7 +521,7 @@ function Contact() {
             Start Your Project
           </p>
           <h2 className="font-serif text-4xl md:text-6xl font-light text-white mb-6 leading-[1.2]">
-            Let&apos;s Create Something
+            Let&apos;s Create Something{" "}
             <span className="block italic text-[#d4c4a8]">Beautiful</span>
           </h2>
           <div className="w-16 h-px bg-[#b8976a] mx-auto mb-10" />
