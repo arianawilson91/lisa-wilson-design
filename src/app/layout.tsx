@@ -1,17 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
   title: "Lisa Wilson Design | Kitchen Designer in Cape Coral, FL",
   description:
-    "Custom kitchen design and remodeling in Cape Coral, Florida. Authorized Woodharbor cabinetry dealer. Kitchen renovation, custom cabinets, and design consultation for Southwest Florida homes.",
+    "Custom kitchen design and remodeling in Cape Coral, Florida. Authorized Woodharbor and Wellborn Forest cabinetry dealer. Kitchen renovation, custom cabinets, and design consultation for Southwest Florida homes.",
   keywords: [
     "kitchen designer Cape Coral",
     "kitchen design Cape Coral FL",
@@ -21,6 +14,8 @@ export const metadata: Metadata = {
     "kitchen designer Naples FL",
     "Woodharbor cabinetry",
     "Woodharbor cabinets Florida",
+    "Wellborn Forest cabinetry",
+    "Wellborn Forest cabinets Florida",
     "custom kitchen cabinets Cape Coral",
     "custom cabinets Southwest Florida",
     "kitchen designer near me",
@@ -37,7 +32,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Lisa Wilson Design | Luxury Kitchen Designer",
     description:
-      "Custom kitchen design in Cape Coral, Florida. Specializing in Woodharbor cabinetry. Beautiful, functional kitchens tailored to your lifestyle.",
+      "Custom kitchen design in Cape Coral, Florida. Specializing in Woodharbor and Wellborn Forest cabinetry. Beautiful, functional kitchens tailored to your lifestyle.",
     url: "https://lisawilsondesign.com",
     siteName: "Lisa Wilson Design",
     locale: "en_US",
@@ -55,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Lisa Wilson Design | Kitchen Designer in Cape Coral, FL",
     description:
-      "Custom kitchen design in Cape Coral, Florida. Specializing in Woodharbor cabinetry.",
+      "Custom kitchen design in Cape Coral, Florida. Specializing in Woodharbor and Wellborn Forest cabinetry.",
     images: ["https://lisawilsondesign.com/portfolio/kitchen-waterfront-view.jpg"],
   },
   robots: {
@@ -82,6 +77,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="p0ot-7qSTS1YYmvjoCpzzxCGmGBqlei8oBqY1h6zDlw"
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -92,7 +91,7 @@ export default function RootLayout({
                 "@id": "https://lisawilsondesign.com/#business",
                 name: "Lisa Wilson Design",
                 description:
-                  "Custom kitchen design and remodeling in Cape Coral, Florida. Specializing in Woodharbor cabinetry, kitchen renovation, and custom cabinets for Southwest Florida homes.",
+                  "Custom kitchen design and remodeling in Cape Coral, Florida. Specializing in Woodharbor and Wellborn Forest cabinetry, kitchen renovation, and custom cabinets for Southwest Florida homes.",
                 url: "https://lisawilsondesign.com",
                 telephone: "+1-239-336-9975",
                 email: "lisawilsondesign@gmail.com",
@@ -131,7 +130,7 @@ export default function RootLayout({
                         "@type": "Service",
                         name: "Custom Cabinetry",
                         description:
-                          "Authorized dealer of Woodharbor custom and semi-custom cabinetry. Premium American-made cabinets built to your specifications.",
+                          "Authorized dealer of Woodharbor and Wellborn Forest custom and semi-custom cabinetry. Premium American-made cabinets built to your specifications.",
                       },
                     },
                     {
@@ -188,7 +187,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} antialiased font-[family-name:var(--font-geist-sans)]`}
+        className="antialiased"
       >
         {children}
       </body>

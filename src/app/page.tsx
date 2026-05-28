@@ -185,6 +185,15 @@ function About() {
                 className="text-[#b8976a] hover:text-[#96784f] transition-colors border-b border-[#b8976a]/40"
               >
                 Woodharbor Cabinetry
+              </a>{" "}
+              and{" "}
+              <a
+                href="https://www.wellbornforest.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#b8976a] hover:text-[#96784f] transition-colors border-b border-[#b8976a]/40"
+              >
+                Wellborn Forest
               </a>
               , Lisa brings premium, American-made cabinetry to every project —
               combining timeless design with exceptional build quality. From
@@ -232,8 +241,8 @@ function Portfolio() {
             <div className="group relative overflow-hidden">
               <div className="relative aspect-[4/3]">
                 <Image
-                  src="/portfolio/kitchen-waterfront-view.jpg"
-                  alt="Waterfront kitchen with ocean views, blue island, and marble countertops"
+                  src="/portfolio/kitchen-waterfront-dining.jpg"
+                  alt="Waterfront kitchen with ocean views, blue beadboard island, marble countertops, and palm tree views"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -243,7 +252,7 @@ function Portfolio() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/portfolio/kitchen-waterfront-island.jpg"
-                  alt="Waterfront kitchen island with beadboard detail and marble top"
+                  alt="Waterfront kitchen island with marble countertop, teal beadboard base, and garden views"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -255,7 +264,7 @@ function Portfolio() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/portfolio/kitchen-waterfront-galley.jpg"
-                  alt="Waterfront kitchen galley view with white and grey cabinetry"
+                  alt="Waterfront kitchen galley view with white beadboard and grey island cabinetry"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -265,7 +274,7 @@ function Portfolio() {
               <div className="relative aspect-[4/3]">
                 <Image
                   src="/portfolio/bathroom-white.jpg"
-                  alt="White beadboard bathroom vanity with marble countertop"
+                  alt="White beadboard bathroom vanity with marble countertop and rustic wood accents"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -288,44 +297,131 @@ function Portfolio() {
           </p>
         </div>
 
-        {/* Project 2: Original kitchens */}
-        <div>
+        {/* Project 2: White Shaker Kitchen */}
+        <div className="mb-20">
           <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-2">
             02
           </p>
           <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
-            Recent Projects
+            White Shaker Kitchen Renovation
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              {
-                src: "/portfolio/kitchen-modern.jpg",
-                alt: "Modern kitchen with black and white cabinetry and gold hardware",
-              },
-              {
-                src: "/portfolio/kitchen-elegant.jpg",
-                alt: "Elegant white kitchen with long peninsula and pendant lights",
-              },
-              {
-                src: "/portfolio/kitchen-coastal.jpeg",
-                alt: "Coastal white kitchen with shiplap island",
-              },
-            ].map((img) => (
-              <div key={img.src} className="group relative overflow-hidden">
-                <div className="relative aspect-[3/4]">
-                  <Image
-                    src={img.src}
-                    alt={img.alt}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-white-shaker-peninsula.jpg"
+                  alt="White shaker kitchen with granite peninsula, pendant lights, and rattan bar stools"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
               </div>
-            ))}
+            </div>
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-white-shaker-galley.jpg"
+                  alt="White shaker kitchen galley view with stainless steel appliances and granite counters"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="group relative overflow-hidden">
+            <div className="relative aspect-[21/9]">
+              <Image
+                src="/portfolio/kitchen-white-shaker-island.jpg"
+                alt="White shaker kitchen with vaulted ceiling, X-pattern wine rack, and granite island seating"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
           </div>
           <p className="text-xs text-gray-400 tracking-wide mt-4">
-            Two-tone cabinetry &middot; Gold hardware &middot; Quartz
-            countertops &middot; Custom islands
+            White shaker cabinetry &middot; Granite countertops &middot; Mosaic
+            tile backsplash &middot; Vaulted ceilings
+          </p>
+        </div>
+
+        {/* Project 3: Sage Green Coastal Kitchen */}
+        <div className="mb-20">
+          <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-2">
+            03
+          </p>
+          <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
+            Sage Green Coastal Kitchen
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-sage-green-front.jpg"
+                  alt="Sage green kitchen with dark wood island, granite countertops, and wicker bar stools"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-sage-green-angle.jpg"
+                  alt="Coastal sage green kitchen with dark wood island and balcony views"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/kitchen-sage-green-galley.jpg"
+                  alt="Sage green kitchen galley view with stainless appliances and granite counters"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <p className="text-xs text-gray-400 tracking-wide mt-4">
+            Sage green cabinetry &middot; Dark wood island &middot; Granite
+            countertops &middot; Coastal styling
+          </p>
+        </div>
+
+        {/* Project 4: Coastal Bathroom Remodel */}
+        <div>
+          <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-2">
+            04
+          </p>
+          <h3 className="font-serif text-2xl md:text-3xl text-white mb-8">
+            Coastal Bathroom Remodel
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/bathroom-coastal-vanity.jpg"
+                  alt="Coastal bathroom with double vanity, granite countertops, and decorative wood-frame mirrors"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+            <div className="group relative overflow-hidden">
+              <div className="relative aspect-[4/3]">
+                <Image
+                  src="/portfolio/bathroom-coastal-shower.jpg"
+                  alt="Coastal bathroom with glass walk-in shower, stone tile, and pebble floor"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </div>
+            </div>
+          </div>
+          <p className="text-xs text-gray-400 tracking-wide mt-4">
+            Double vanity &middot; Granite countertops &middot; Glass walk-in
+            shower &middot; Stone tile
           </p>
         </div>
       </div>
@@ -367,12 +463,11 @@ function FeatureBanner() {
 }
 
 function Testimonials() {
-  const testimonials = [
+  const testimonials: { quote: string; name: string; location?: string }[] = [
     {
       quote:
-        "Lisa transformed our kitchen beyond what we imagined. Her eye for detail and understanding of how we live made all the difference.",
-      name: "Sarah M.",
-      location: "Cape Coral",
+        "WOW! What a difference a pro makes! I have been struggling with my new kitchen design and my contractor was getting behind with his schedule due to all the changes. Fortunately, I came across Lisa from Lisa Wilson Design. In no time flat, she gave me a design that was updated and pleasing to the senses. A pro is more affordable than you think and definitely prevents you making costly mistakes. I highly recommend her and will use her again in the future.",
+      name: "Nancy Corso",
     },
     {
       quote:
@@ -411,9 +506,11 @@ function Testimonials() {
               <p className="text-xs tracking-[0.2em] uppercase font-medium text-[#2a2a2a]">
                 {t.name}
               </p>
-              <p className="text-xs text-gray-500 tracking-wide mt-1">
-                {t.location}
-              </p>
+              {t.location && (
+                <p className="text-xs text-gray-500 tracking-wide mt-1">
+                  {t.location}
+                </p>
+              )}
             </div>
           ))}
         </div>
