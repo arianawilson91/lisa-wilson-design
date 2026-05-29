@@ -468,6 +468,7 @@ function Testimonials() {
       quote:
         "WOW! What a difference a pro makes! I have been struggling with my new kitchen design and my contractor was getting behind with his schedule due to all the changes. Fortunately, I came across Lisa from Lisa Wilson Design. In no time flat, she gave me a design that was updated and pleasing to the senses. A pro is more affordable than you think and definitely prevents you making costly mistakes. I highly recommend her and will use her again in the future.",
       name: "Nancy Corso",
+      location: "Cape Coral",
     },
     {
       quote:
