@@ -429,6 +429,48 @@ function Portfolio() {
   );
 }
 
+function VideoFeature() {
+  return (
+    <section id="craftsmanship" className="py-28 md:py-40 bg-[#f8f5f0]">
+      <div className="max-w-6xl mx-auto px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="text-center lg:text-left">
+            <p className="text-[11px] tracking-[0.35em] uppercase text-[#b8976a] mb-4">
+              Behind the Craft
+            </p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light text-[#2a2a2a] mb-8 leading-[1.2]">
+              How Woodharbor
+              <span className="block italic">Cabinetry Is Made</span>
+            </h2>
+            <div className="w-16 h-px bg-[#b8976a] mx-auto lg:mx-0 mb-8" />
+            <p className="text-gray-600 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
+              Take a look inside the Woodharbor workshop, where the custom
+              cabinetry we design with is built by hand. It&apos;s the same
+              quality you&apos;ll see in every kitchen and bath in our
+              portfolio.
+            </p>
+            <a
+              href="#contact"
+              className="inline-block border border-[#b8976a] text-[#b8976a] px-10 py-4 text-[11px] tracking-[0.3em] uppercase hover:bg-[#b8976a] hover:text-white transition-all duration-500"
+            >
+              Start Your Project
+            </a>
+          </div>
+          <div className="w-full max-w-[504px] mx-auto">
+            <iframe
+              src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7511810091528937472"
+              title="Woodharbor Custom Cabinetry manufacturing video"
+              className="w-full h-[1020px] sm:h-[840px] bg-white shadow-sm"
+              allowFullScreen
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FeatureBanner() {
   return (
     <section className="relative py-32 md:py-44 overflow-hidden">
@@ -786,6 +828,7 @@ export default function Home() {
       <Hero />
       <About />
       <Portfolio />
+      <VideoFeature />
       <FeatureBanner />
       <Testimonials />
       <Services />
